@@ -1,0 +1,54 @@
+import math
+
+
+def get_player_pos() -> tuple[float, float, float]:
+    while True:
+        user_input = input("Enter new coordinates as floats in format 'x,y,z': ")
+        coordinates = user_input.split(",")
+
+        if len(coordinates) != 3:
+            print("Invalid syntax")
+            continue
+
+        numbers: list[float] = []
+
+        for value in coordinates:
+            try:
+                numbers.append(float(value))
+            except ValueError as error:
+                print(f"Error on parameter '{value}': {error}")
+                break
+        else:
+            x, y, z = numbers
+            return x, y, z
+
+
+def get_distance(
+    first: tuple[float, float, float],
+    second: tuple[float, float, float] = (0.0, 0.0, 0.0),
+) -> float:
+    x1, y1, z1 = first
+    x2, y2, z2 = second
+    return round(math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2 + (z2 - z1) ** 2), 4)
+
+
+def main():
+    print("=== Game Coordinate System ===")
+    position = get_player_pos()
+    print(f"Got a first tuple: {position}")
+
+    x, y, z = position
+    print(f"It includes: X={x}, Y={y}, Z={z}")
+
+    distance_to_center = get_distance(position)
+    print(f"Distance to center:{distance_to_center}\n")
+
+    print("Get a second set of coordinates")
+    position2 = get_player_pos()
+
+    distance_between_pos = get_distance(position, position2)
+    print(f"Distance between the 2 sets of coordinates:{distance_between_pos}")
+
+
+if __name__ == "__main__":
+    main()
