@@ -35,19 +35,19 @@ if __name__ == "__main__":
         print(f"Got inventory: {inventory}")
         print(f"Item list: {inventory.keys}")
         print(f"Item list: {inventory.keys}")
-        items_count = sum(inventory.values)
-        print(f"Total quantity of the {len(inventory.keys)} items: {items_count}")
+        items_count = sum(inventory.values())
+        print(f"Total quantity of the {len(inventory.keys())} items: {items_count}")
         percent = lambda number: number / items_count * 100
-        for key, value in inventory:
+        for key, value in inventory.items():
             print(f"Item {key} represents {percent(value)}")
 
-        biggest = max(inventory.items(), key=lambda pair: pair[1])
-        print(f"Item most abundant: {biggest.key} with quantity {biggest.value}")
+        biggest_key, biggest_value = max(inventory.items(), key=lambda pair: pair[1])
+        print(f"Item most abundant: {biggest_key} with quantity {biggest_value}")
 
-        smallest = min(inventory.items(), key=lambda pair: pair[1])
-        print(f"Item most abundant: {smallest.key} with quantity {smallest.value}")
+        smallest_key, smallest_value = min(inventory.items(), key=lambda pair: pair[1])
+        print(f"Item least abundant: {smallest_key} with quantity {smallest_value}")
 
-        inventory.update("'magic_item", 1)
+        inventory.update({"magic_item": 1})
         print(f"Updated inventory: {inventory}")
     else:
         print("Inventory is empty, my Lord")

@@ -5,7 +5,7 @@ def check_arguments(arguments: list[str]) -> list[int] | None:
     valid_args_list: list[int] = []
     all_args_valid = True
     if not arguments:
-        return 
+        return None
 
     for argument in arguments:
         try:
@@ -19,7 +19,7 @@ def check_arguments(arguments: list[str]) -> list[int] | None:
     if all_args_valid:
         return valid_args_list
     else:
-        return
+        return None
 
 
 def main() -> None:
