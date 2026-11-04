@@ -25,7 +25,7 @@ class Plant:
         print(f"Is {age} days more than a year? -> {age > 365}")
 
     @classmethod
-    def create_anonymous(cls) -> Plant:
+    def create_anonymous(cls) -> "Plant":
         return cls("Unknown plant", 0, 0)
 
     class Statistics:
