@@ -21,10 +21,18 @@ print("ORACLE STATUS: Consulting the configuration...")
 
 print("\nConfiguration loaded:")
 print(f" Mode: {mode}")
-print(f" Database: {'Connection configured' if database else 'Not configured'}")
-print(f" API Access: {'Credentials configured' if api_key else 'Not authenticated'}")
+print(
+    f" Database: {'Connection configured' if database else 'Not configured'}"
+)
+print(
+    f" API Access: "
+    f"{'Credentials configured' if api_key else 'Not authenticated'}"
+)
 print(f" Log Level: {log_level}")
-print(f" Remote Network: {'Endpoint configured' if endpoint else 'Not configured'}")
+print(
+    f" Remote Network: "
+    f"{'Endpoint configured' if endpoint else 'Not configured'}"
+)
 
 print("\nConfiguration validation:")
 

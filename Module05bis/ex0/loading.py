@@ -1,6 +1,10 @@
 import importlib
 
-print("\nREAGENT STATUS: Loading reagents...\n", "Checking dependencies:", sep="\n")
+print(
+    "\nREAGENT STATUS: Loading reagents...\n",
+    "Checking dependencies:",
+    sep="\n",
+)
 libraries: list[tuple[str, str]] = [
     ("pandas", "Data manipulation ready"),
     ("numpy", "Numerical computation ready"),
@@ -29,7 +33,8 @@ print(
     "pyproject.toml declares the same constraints, "
     "and Poetry pins the resolved",
     "versions in poetry.lock so every install is identical.",
-    sep="\n",end="\n\n"
+    sep="\n",
+    end="\n\n",
 )
 if all_installed:
     print("All reagents present and accounted for.")
